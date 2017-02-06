@@ -1,26 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    tools:context="io.github.toast.MainActivity">
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/btn_system_toast"
+    <LinearLayout
+        android:id="@+id/activity_main"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="系统Toast"
-        android:textColor="@android:color/black"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:paddingBottom="@dimen/activity_vertical_margin"
+        android:paddingLeft="@dimen/activity_horizontal_margin"
+        android:paddingRight="@dimen/activity_horizontal_margin"
+        android:paddingTop="@dimen/activity_vertical_margin"
+        tools:context="io.gihub.dialog.MainActivity">
 
-    <Button
-        android:id="@+id/btn_super_toast"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="SuperToast"
-        android:textColor="@android:color/black"/>
-</LinearLayout>
+        <Button
+            android:id="@+id/btn_one_cancel_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="只有一个取消按钮对话框"/>
+
+        <Button
+            android:id="@+id/btn_one_confirm_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="只有一个确定按钮对话框"/>
+
+        <Button
+            android:id="@+id/btn_two_button_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="包含确定、取消按钮对话框"/>
+
+        <Button
+            android:id="@+id/btn_three_button_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="三个按钮对话框"/>
+    </LinearLayout>
+</ScrollView>
