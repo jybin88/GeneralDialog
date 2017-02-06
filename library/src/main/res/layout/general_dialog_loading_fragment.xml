@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:skin="http://schemas.android.com/android/skin"
+              xmlns:tools="http://schemas.android.com/tools"
+              android:layout_width="wrap_content"
+              android:layout_height="wrap_content"
+              android:background="@drawable/general_dialog_loading_bg_shape"
+              android:gravity="center"
+              android:minWidth="135dp"
+              android:orientation="vertical"
+              android:paddingLeft="10dp"
+              android:paddingRight="10dp"
+              skin:filter="background"
+              tools:ignore="RtlHardcoded,ContentDescription,MissingPrefix,PrivateResource">
+
+    <ImageView
+        android:id="@+id/iv_fragent_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitCenter"
+        android:src="@drawable/general_dialog_general_load_medium_special"
+        skin:filter="src"
+        />
+
+    <TextView
+        android:id="@+id/tv_fragent_loading_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:lines="1"
+        android:maxLines="1"
+        android:textColor="#ffffff"
+        android:textSize="14sp"
+        skin:filter="textColor"/>
+</LinearLayout>

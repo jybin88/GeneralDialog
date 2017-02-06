@@ -16,6 +16,12 @@
         tools:context="io.gihub.dialog.MainActivity">
 
         <Button
+            android:id="@+id/btn_no_title_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=" 没有标题对话框"/>
+
+        <Button
             android:id="@+id/btn_one_cancel_dialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -38,5 +44,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="三个按钮对话框"/>
+
+        <Button
+            android:id="@+id/btn_loading_button_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="加载对话框(不可取消)"/>
+
+        <Button
+            android:id="@+id/btn_cancelable_loading_button_dialog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="加载对话框(可取消)"/>
     </LinearLayout>
 </ScrollView>

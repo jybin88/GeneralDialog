@@ -11,19 +11,30 @@ import android.widget.Toast;
 
 import com.lfh.custom.widget.dialog.DialogParam;
 import com.lfh.custom.widget.dialog.GeneralDialogFragment;
-
+import com.lfh.custom.widget.dialog.LoadingDialogFragment;
+import com.lfh.custom.widget.dialog.LoadingDialogParam;
 
 
 public class MainActivity extends AppCompatActivity {
+    private static final String NO_TITLE_DIALOG = "no_title_dialog";
     private static final String CANCEL_DIALOG = "cancel_dialog";
     private static final String CONFIRM_DIALOG = "confirm_dialog";
     private static final String CONFIRM_CANCEL_DIALOG = "confirm_cancel_dialog";
     private static final String THREE_BUTTON_DIALOG = "three_button_dialog";
+    private static final String LOADING_DIALOG = "loading_dialog";
+    private static final String CANCELABLE_LOADING_DIALOG = "cancelable_loading_dialog";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        findViewById(R.id.btn_no_title_dialog).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View pView) {
+                showNoTitleDialog();
+            }
+        });
 
         findViewById(R.id.btn_one_cancel_dialog).setOnClickListener(new OnClickListener() {
 
@@ -53,6 +64,44 @@ public class MainActivity extends AppCompatActivity {
                 showThreeButtonDialog();
             }
         });
+
+        findViewById(R.id.btn_loading_button_dialog).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View pView) {
+                showLoadingDialog();
+            }
+        });
+
+        findViewById(R.id.btn_cancelable_loading_button_dialog).setOnClickListener(new OnClickListener() {
+            @Override
+            public void onClick(View pView) {
+                showCancelableLoadingDialog();
+            }
+        });
+    }
+
+    private void showNoTitleDialog() {
+        DialogParam param = DialogParam.builder()
+                .setMessage("没有标题的对话框")
+                .setNegativeText("取消")
+                .setPositionText("确定")
+                .build();
+        GeneralDialogFragment fragment = GeneralDialogFragment.newInstance(param);
+        fragment.setOnNegativeButtonClickListener(new GeneralDialogFragment.OnNegativeButtonClickListener() {
+            @Override
+            public void onNegativeButtonClick() {
+                hideDialog(NO_TITLE_DIALOG);
+                Toast.makeText(MainActivity.this, "点击了取消按钮", Toast.LENGTH_SHORT).show();
+            }
+        });
+        fragment.setOnPositiveButtonClickListener(new GeneralDialogFragment.OnPositiveButtonClickListener() {
+            @Override
+            public void onPositionButtonClick() {
+                hideDialog(NO_TITLE_DIALOG);
+                Toast.makeText(MainActivity.this, "点击了确定按钮", Toast.LENGTH_SHORT).show();
+            }
+        });
+        showDialog(fragment, NO_TITLE_DIALOG);
     }
 
     private void showThreeButtonDialog() {
@@ -147,6 +196,24 @@ public class MainActivity extends AppCompatActivity {
         });
 
         showDialog(fragment, CANCEL_DIALOG);
+    }
+
+    private void showLoadingDialog() {
+        LoadingDialogParam param = LoadingDialogParam.builder()
+                .setMessage("加载中...")
+                .setCancelable(false)//默认为false，可以不需要加这句
+                .build();
+        LoadingDialogFragment fragment = LoadingDialogFragment.newInstance(param);
+        showDialog(fragment, LOADING_DIALOG);
+    }
+
+    private void showCancelableLoadingDialog() {
+        LoadingDialogParam param = LoadingDialogParam.builder()
+                .setMessage("加载中...")
+                .setCancelable(true)
+                .build();
+        LoadingDialogFragment fragment = LoadingDialogFragment.newInstance(param);
+        showDialog(fragment, CANCELABLE_LOADING_DIALOG);
     }
 
     private void showDialog(DialogFragment pDialogFragment, String pTag) {
