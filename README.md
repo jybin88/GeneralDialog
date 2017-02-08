@@ -33,6 +33,10 @@
 - 提示文字
 - 是否可取消
 
+Demo
+----
+![](<https://github.com/jybin88/GeneralDialog/raw/master/demo/demo.gif>)
+
 通用对话框使用方法
 ----
 
