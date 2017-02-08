@@ -1,7 +1,6 @@
 # EntDialog
 
-通用对话框
-
+通用对话框 数据请求对话框
 ---
 
 开发者：lifh
@@ -9,20 +8,32 @@
 主要功能
 ----
 
+> 通用对话框
+
  - 无标题对话框
  - 带标题、只有一个按钮对话框
  - 带标题、有两个按钮对话框
  - 带标题、有三个按钮对话框
 
+> 数据加载对话框
+
+ - 提示数据正在处理
+
 可自定义选项
 ------
+> 通用对话框
 
  - 按钮文字
  - 按钮是否显示
  - 标题是否显示
  - 消息内容
 
-使用方法
+> 数据加载对话框
+
+- 提示文字
+- 是否可取消
+
+通用对话框使用方法
 ----
 
 > 1.构造参数
@@ -91,3 +102,24 @@ private void showDialog() {
     }
 }
 ```
+
+数据请求对话框使用方法
+-----------
+> 1.构造参数
+
+```java 
+LoadingDialogParam param = LoadingDialogParam.builder()
+                .setMessage("加载中...") //必填
+                .setCancelable(true)  // true 可点击返回键取消、 false 不可取消(默认值 可以不加这句)
+                .build();
+```
+
+> 2.实例一个对象
+
+```java
+LoadingDialogFragment fragment = LoadingDialogFragment.newInstance(param);
+```
+
+> 3.显示、隐藏
+
+参考通过对话框的显示、隐藏
