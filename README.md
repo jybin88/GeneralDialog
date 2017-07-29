@@ -49,7 +49,7 @@
 
 ### 2. 在Module的build.gradle添加依赖
 
-    compile 'com.github.jybin88:CommonUtil:v0.1'
+    compile 'com.github.jybin88:GeneralDialog:v0.1'
 
 Demo
 ----
