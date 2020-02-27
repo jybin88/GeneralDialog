@@ -24,8 +24,6 @@ android {
 }
 
 dependencies {
-    //android library
-    compile "com.android.support:support-annotations:$vSupportLib"
-    compile "com.android.support:support-v4:$vSupportLib"
-    compile "com.android.support:appcompat-v7:$vSupportLib"
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'com.google.android.material:material:1.1.0'
 }
