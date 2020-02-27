@@ -2,7 +2,8 @@ package com.lfh.custom.widget.dialog;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-import android.support.annotation.DrawableRes;
+
+import androidx.annotation.DrawableRes;
 
 /**
  * 对话框参数
